@@ -5,6 +5,9 @@ from flashbdev import bdev
 def wifi():
     import ubinascii
     ap_if = network.WLAN(network.AP_IF)
+    wlan = network.WLAN(network.STA_IF) 
+    wlan.active(True)                       
+    wlan.connect('gogo_mt', 'ilovecpeilovecpe')
     essid = b"MicroPython-%s" % ubinascii.hexlify(ap_if.config("mac")[-3:])
     ap_if.config(essid=essid, authmode=network.AUTH_WPA_WPA2_PSK, password=b"micropythoN")
 
